@@ -1,0 +1,12 @@
+var phongController = require('../controllers/phong.controller');
+var express = require('express');
+var multer = require('multer');
+var router = express.Router();
+router.get('/list', phongController.getListPhong);
+router.get('/add', phongController.getAddPhong);
+router.post('/add', phongController.postAddPhong);
+router.get('delete:id', phongController.getDeletePhong);
+var multerupload = multer({dest: './tmp/'});
+router.get('/image/:id', phongController.getPhoto);
+router.post('/image/:id', multerupload.array('hinhanh', 10),phongController.postAddPhoto);
+module.exports = router;

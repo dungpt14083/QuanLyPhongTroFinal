@@ -1,0 +1,11 @@
+var khachhangController = require('../controllers/khachhang.controller');
+var express = require('express');
+var router = express.Router();
+router.get('/list', khachhangController.getListKH);
+router.get('/add', khachhangController.getAddKH);
+router.post('/add', khachhangController.postAddKH);
+router.get('/edit:id', khachhangController.getEditKH);
+router.post('/edit:id', khachhangController.postEditKH);
+router.get('/delete:id', khachhangController.getDeleteKH);
+router.post('/delete:id', khachhangController.postDeleteKH);
+module.exports = router;
